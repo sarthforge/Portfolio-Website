@@ -2,9 +2,9 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { useEffect } from "react";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -46,24 +46,32 @@ const projects = [
 ];
 
 const Work = () => {
-  useGSAP(() => {
-    let translateX: number = 0;
+  useEffect(() => {
+    let translateX = 0;
 
     function setTranslateX() {
       const box = document.getElementsByClassName("work-box");
       const container = document.querySelector(".work-container");
+
       if (!box.length || !container) return;
+
       const rectLeft = container.getBoundingClientRect().left;
       const rect = box[0].getBoundingClientRect();
-      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-      let padding: number =
+      const parentWidth =
+        box[0].parentElement!.getBoundingClientRect().width;
+
+      const padding =
         parseInt(window.getComputedStyle(box[0]).padding) / 2;
-      translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
+
+      translateX =
+        rect.width * box.length -
+        (rectLeft + parentWidth) +
+        padding;
     }
 
     setTranslateX();
 
-    let timeline = gsap.timeline({
+    const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".work-section",
         start: "top top",
@@ -91,6 +99,7 @@ const Work = () => {
         <h2>
           My <span>Work</span>
         </h2>
+
         <div className="work-flex">
           {projects.map((project, index) => (
             <div className="work-box" key={index}>
@@ -103,8 +112,10 @@ const Work = () => {
                     <p>{project.category}</p>
                   </div>
                 </div>
+
                 <h4>Tools and features</h4>
                 <p>{project.tools}</p>
+
                 <p
                   style={{
                     marginTop: "10px",
@@ -116,6 +127,7 @@ const Work = () => {
                   {project.description}
                 </p>
               </div>
+
               <WorkImage
                 image={project.image}
                 alt={project.title}
