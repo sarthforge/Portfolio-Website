@@ -93,7 +93,7 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
       duration: 1.2,
       ease: "power3.inOut",
       y: 0,
-      stagger: 0.1,
+      stagger: 0.05,
       delay: delay,
     },
     0
@@ -105,7 +105,7 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
         duration: 1.2,
         ease: "power3.inOut",
         y: 0,
-        stagger: 0.1,
+        stagger: 0.05,
         delay: delay2,
       },
       1
@@ -117,7 +117,7 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
         y: -80,
         duration: 1.2,
         ease: "power3.inOut",
-        stagger: 0.1,
+        stagger: 0.05,
         delay: delay,
       },
       0
@@ -128,7 +128,7 @@ function LoopText(Text1: SplitText, Text2: SplitText) {
         y: -80,
         duration: 1.2,
         ease: "power3.inOut",
-        stagger: 0.1,
+        stagger: 0.05,
         delay: delay2,
       },
       1

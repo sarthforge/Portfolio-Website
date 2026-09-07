@@ -1,0 +1,178 @@
+.techstack {
+  width: 100%;
+  position: relative;
+  height: var(--vh);
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: -100px;
+  overflow: hidden;
+}
+
+.techstack-header {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tech-glow {
+  position: absolute;
+  width: 600px;
+  height: 250px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(168, 85, 247, 0.22) 0%,
+    rgba(194, 164, 255, 0.08) 45%,
+    transparent 75%
+  );
+  filter: blur(40px);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: techPulse 6s ease-in-out infinite alternate;
+}
+
+.tech-badge {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c2a4ff;
+  background: rgba(194, 164, 255, 0.08);
+  border: 1px solid rgba(194, 164, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15),
+    inset 0 0 10px rgba(194, 164, 255, 0.1);
+  pointer-events: auto;
+  transition: 0.3s ease;
+}
+
+.tech-badge:hover {
+  border-color: rgba(194, 164, 255, 0.6);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.35);
+  transform: translateY(-2px);
+}
+
+.techstack h2 {
+  font-size: 80px;
+  line-height: 85px;
+  text-align: center;
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: "Geist", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #e9d5ff 25%,
+    #c2a4ff 50%,
+    #a855f7 70%,
+    #60a5fa 90%,
+    #ffffff 100%
+  );
+  background-size: 250% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 35px rgba(168, 85, 247, 0.4));
+  animation: techShimmer 8s linear infinite;
+  pointer-events: auto;
+  cursor: default;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.techstack h2:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 50px rgba(194, 164, 255, 0.7));
+}
+
+.techstack h2 .tech-accent {
+  font-weight: 300;
+  font-style: italic;
+  background: linear-gradient(
+    135deg,
+    #f472b6 0%,
+    #c084fc 40%,
+    #a855f7 70%,
+    #818cf8 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(244, 114, 182, 0.5));
+}
+
+@keyframes techShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes techPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .techstack h2 {
+    font-size: 65px;
+    line-height: 70px;
+    letter-spacing: 4px;
+  }
+  .tech-glow {
+    width: 480px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .techstack-header {
+    top: 60px;
+  }
+  .techstack h2 {
+    font-size: 42px;
+    line-height: 48px;
+    letter-spacing: 3px;
+  }
+  .tech-badge {
+    font-size: 11px;
+    padding: 4px 14px;
+    letter-spacing: 3px;
+  }
+  .tech-glow {
+    width: 320px;
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .techstack h2 {
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: 2px;
+  }
+}

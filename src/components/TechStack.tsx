@@ -10,6 +10,7 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import "./styles/TechStack.css";
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
@@ -168,7 +169,13 @@ const TechStack = () => {
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <div className="techstack-header">
+        <div className="tech-glow"></div>
+        <span className="tech-badge">// TECH STACK & TOOLS</span>
+        <h2>
+          MY <span className="tech-accent">TECHSTACK</span>
+        </h2>
+      </div>
 
       <Canvas
         shadows
